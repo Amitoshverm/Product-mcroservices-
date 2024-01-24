@@ -28,6 +28,8 @@ public class OrderService {
                 .map(this::mapToDto)
                 .toList();
         order.setOrderLineItemsList(orderLineItems);
+
+        // Call inventory service and place order if product is in stock
         orderRepository.save(order);
     }
 
